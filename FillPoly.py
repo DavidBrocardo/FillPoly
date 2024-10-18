@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import colorchooser
+from math import ceil, floor
 class FillPoly:
     lista_intersecoess = {}
     cores_poligino = []
@@ -99,14 +100,17 @@ class FillPoly:
             if len(pontos_Intersecoess) > 1 :
                 j = 0
                 while j < (len(pontos_Intersecoess)):
-                    x_ini =  pontos_Intersecoess[(j)]
-                    x_fim =  pontos_Intersecoess[(j+1)]
+                    x_ini =  ceil(pontos_Intersecoess[(j)])
+                    x_fim =  floor(pontos_Intersecoess[(j+1)])
+                    self.tela.create_line(x_ini, i, x_fim, i, fill=CorPoligino, width=1)
                     j = j + 2
-                    X = x_ini
+                    '''X = x_ini
                     while X < x_fim:
                         self.tela.create_rectangle(X, i, X+1, i+1, fill=CorPoligino, outline= CorPoligino)
                         
-                        X += 1
+                        X += 1'''
+                    
+            
             i+=1
         i = self.y_min  
         for i in range((len(self.poligino)-1)):

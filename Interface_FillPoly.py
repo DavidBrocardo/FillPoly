@@ -2,14 +2,14 @@ import tkinter as tk
 from tkinter import colorchooser
 from FillPoly import FillPoly
 
+
 class Interface:
 
     def __init__(self, tela):
         self.tela = tela
         self.tela.title("FillPoly")
         self.vertices = []      
-        self.cores_poliginos = [] 
-        self.arestas = []
+        self.cores_poliginos = []         
         self.corPoligino = "#000000"
         self.corAresta = "#FFFF00"
         self.Poligino_controle = 0
@@ -55,7 +55,7 @@ class Interface:
                 i = len(self.vertices)
                 x_inicial, y_inicial = self.vertices[(0)] 
                 x_final, y_final = self.vertices[(i-1)]  
-                #self.arestas.append(((x_inicial,y_inicial),(x_final,y_final)))
+                
                 FillPoly(self.vertices,self.canvas,self.cores_poliginos,self.indicePoligino,1,0,0)
                 self.indicePoligino += 1
                 self.vertices = []
@@ -109,5 +109,8 @@ class Interface:
             self.corAresta = hex_color
             self.label_corAresta.config(bg=self.corAresta)
 
+tkk = tk.Tk()
+app = Interface(tkk)
+tkk.mainloop()
 
 
