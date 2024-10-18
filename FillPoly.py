@@ -80,11 +80,12 @@ class FillPoly:
                     x_Fin, y_Fin =  self.poligino[(i)]
                 
             if (y_ini != y_Fin):                    
-                if(x_Fin == x_Ini):
+                '''if(x_Fin == x_Ini):
                     coeficienteAngular =  (y_Fin -y_ini)
                 else:
                     coeficienteAngular =  (y_Fin -y_ini)/(x_Fin-x_Ini)
-                Tx = 1 / coeficienteAngular
+                Tx = 1 / coeficienteAngular'''
+                Tx = (x_Fin-x_Ini)/ (y_Fin -y_ini)
                 YInter  = y_ini
                 XInter =  x_Ini 
                 FillPoly.lista_intersecoess[self.indicePoligino][y_ini].append((x_Ini))
@@ -170,8 +171,7 @@ class FillPoly:
             _, hex_color = cor                  
             corPoligino = hex_color        
             FillPoly.cores_poligino[ind] = (corAresta, corPoligino)
-            self.atualizaTela()   
-        
+            self.atualizaTela()       
         
     def ApagaPoligino(self):
         ind = self.encontraPoligino()
