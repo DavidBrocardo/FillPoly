@@ -80,11 +80,6 @@ class FillPoly:
                     x_Fin, y_Fin =  self.poligino[(i)]
                 
             if (y_ini != y_Fin):                    
-                '''if(x_Fin == x_Ini):
-                    coeficienteAngular =  (y_Fin -y_ini)
-                else:
-                    coeficienteAngular =  (y_Fin -y_ini)/(x_Fin-x_Ini)
-                Tx = 1 / coeficienteAngular'''
                 Tx = (x_Fin-x_Ini)/ (y_Fin -y_ini)
                 YInter  = y_ini
                 XInter =  x_Ini 
@@ -109,7 +104,7 @@ class FillPoly:
                     j = j + 2
                     X = x_ini
                     while X < x_fim:
-                        self.tela.create_oval(X, i, X+1, i+1, fill=CorPoligino, outline= CorPoligino)
+                        self.tela.create_rectangle(X, i, X+1, i+1, fill=CorPoligino, outline= CorPoligino)
                         
                         X += 1
             i+=1
