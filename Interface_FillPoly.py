@@ -55,7 +55,7 @@ class Interface:
                 i = len(self.vertices)
                 x_inicial, y_inicial = self.vertices[(0)] 
                 x_final, y_final = self.vertices[(i-1)]  
-                self.arestas.append(((x_inicial,y_inicial),(x_final,y_final)))
+                #self.arestas.append(((x_inicial,y_inicial),(x_final,y_final)))
                 FillPoly(self.vertices,self.canvas,self.cores_poliginos,self.indicePoligino,1,0,0)
                 self.indicePoligino += 1
                 self.vertices = []
@@ -66,6 +66,7 @@ class Interface:
         self.cores_poliginos = []
         self.indicePoligino = 0
         self.canvas.delete("all") 
+        self.vertices = []
         FillPoly(0,0,0,0,4,0,0)
         
     def Mudar_Cor_Poligino(self):
@@ -78,12 +79,8 @@ class Interface:
         if self.Poligino_controle == 0:
             x, y = event.x, event.y
             self.vertices.append((x,y))
-            self.canvas.create_oval(x, y, x+3, y+3, fill=self.corPoligino)
-            if len(self.vertices) >= 2:
-                i = len(self.vertices)
-                x_inicial, y_inicial = self.vertices[(i-2)]  
-                x_final, y_final = self.vertices[(i-1)]  
-                self.arestas.append(((x_inicial,y_inicial),(x_final,y_final)))
+            self.canvas.create_oval(x, y, x+2, y+2, fill=self.corPoligino)
+
         else:
             x, y = event.x, event.y
             cor = []  

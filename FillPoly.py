@@ -97,17 +97,8 @@ class FillPoly:
         return    
 
     def FillPoly_pinta(self):
-        corAresta, CorPoligino = FillPoly.cores_poligino[self.indicePoligino]
-        i = self.y_min   
-        for i in range((len(self.poligino)-1)):
-            x_inicial , y_inicial = self.poligino[(i)] 
-            x_final , y_final = self.poligino[(i+1)] 
-            self.tela.create_line(x_inicial, y_inicial, x_final, y_final, fill=corAresta, width=3)
-        i = len(self.poligino)              
-        x_inicial, y_inicial = self.poligino[(0)]  
-        x_final, y_final = self.poligino[(i-1)]
-        self.tela.create_line(x_inicial, y_inicial, x_final, y_final, fill=corAresta, width=3)
-
+        corAresta, CorPoligino = FillPoly.cores_poligino[self.indicePoligino]  
+        i = len(self.poligino)     
         while (i < self.y_max):
             pontos_Intersecoess = sorted(FillPoly.lista_intersecoess[self.indicePoligino].get(i, []))
             if len(pontos_Intersecoess) > 1 :
@@ -122,6 +113,20 @@ class FillPoly:
                         
                         X += 1
             i+=1
+        i = self.y_min  
+        for i in range((len(self.poligino)-1)):
+            x_inicial , y_inicial = self.poligino[(i)] 
+            x_final , y_final = self.poligino[(i+1)] 
+            self.tela.create_line(x_inicial, y_inicial, x_final, y_final, fill=corAresta, width=2)
+      
+        i = len(self.poligino)              
+        x_inicial, y_inicial = self.poligino[(0)]  
+        x_final, y_final = self.poligino[(i-1)]
+        self.tela.create_line(x_inicial, y_inicial, x_final, y_final, fill=corAresta, width=2)
+
+        for vertice in range(len(self.poligino)):
+                x,y = self.poligino[(vertice)]
+                self.tela.create_oval(x, y, x+2, y+2, fill=self.cor)
         return    
 
     def encontraPoligino(self):
@@ -154,10 +159,6 @@ class FillPoly:
             x_min, self.y_max = poliginoOrdenadoY[-1]  
             self.indicePoligino = i
             self.corA, self.cor = FillPoly.cores_poligino[i]  
-            for vertice in range(len(self.poligino)):
-                x,y = self.poligino[(vertice)]
-                self.tela.create_oval(x, y, x+3, y+3, fill=self.cor)
-
             self.FillPoly_pinta() 
             self.poligino = []
             i += 1
