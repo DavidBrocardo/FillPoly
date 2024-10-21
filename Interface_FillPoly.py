@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import colorchooser
+from tkinter import messagebox
 from FillPoly import FillPoly
 
 
@@ -70,10 +71,17 @@ class Interface:
         FillPoly(0,0,0,0,4,0,0)
         
     def Mudar_Cor_Poligino(self):
-        self.Poligino_controle = 2        
+        if len(self.vertices) == 0:
+            self.Poligino_controle = 2
+        else:
+            messagebox.showinfo("Atenção", "Finalize o polígono atual antes de realizar outra ação!")        
 
     def Apagar_Poligino(self):
-        self.Poligino_controle = 3
+        if len(self.vertices) == 0:
+            self.Poligino_controle = 3
+        else:
+            messagebox.showinfo("Atenção", "Finalize o polígono atual antes de realizar outra ação!")
+
 
     def onclick(self, event):
         if self.Poligino_controle == 0:
