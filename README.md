@@ -2,27 +2,24 @@
 
 TRABALHO 1 DE COMPUTAÇÃO GRÁFICA – TURMA 2024 
 
-O algoritmo fillpoly identifica quais scanlines devem ser processadas,
-registrando todas as interseções entre elas e as arestas que compõem a fronteira do
-polígono. 
+Nome : David Antonio Brocardo
 
-Neste trabalho o que se pede é a implementação de um software que seja
-capaz de desenhar e pintar a região interna de polígonos (algoritmo fillpoly). Os requisitos
-são:
-1) O algoritmo a ser implementado deve usar aritmética incremental (requisito
-obrigatório), conforme orientações apresentadas em sala de aula;
-2) Pode ser desenhando qualquer tipo de polígono (convexo, côncavo ou com
-autointerseção);
-3) O usuário pode desenhar um ou mais polígonos de qualquer formato na tela
-do computador, usando para isso cliques do mouse;
-4) Cada polígono pode ser selecionado individualmente pelo usuário, usando
-para isso cliques do mouse sobre a interface onde estão desenhados;
-5) O usuário pode selecionar um polígono e trocar a cor de preenchimento
-(requisito obrigatório);
-6) Definida a geometria do polígono e sua cor de preenchimento deve-se pintar
-apenas os pixels que pertençam à região interna do polígono (requisito
-obrigatório);
-7) Deve estar disponível ao usuário a opção de pintar ou não pintar as arestas
-dos polígonos. Neste caso a cor das arestas será sempre fixa (em amarelo);
-8) Polígonos selecionados podem ser excluídos da lista de polígonos
-manipuladas pelo software.
+Requisitos para execução
+    - Sistema operacional: Windows (recomendado, pode não funcionar totalmente em outros sistemas operacionais).
+    - Python: Deve estar instalado na máquina.
+            1. Poderá baixar atráves do seguinte link : "https://www.python.org/downloads/"
+            2. Durante a instalação, marque a opção “Install Tcl/Tk and IDLE”. (bibliotecas necessárias)
+    - IDE recomendada: VSCode, porém também pode ser executado via prompt de comando
+
+Para executar no VSCode:
+    1. Abra os arquivos do projeto no VSCode.
+    2. Execute o arquivo Interface_FillPoly.py.
+
+Para executar pelo Prompt de comando:
+    1. Abra um terminal na pasta dos arquivos do projeto
+    2. Execulte o seguinte comando: "Python .\Interface_FillPoly.py"
+
+Informações Extras:
+    - A cor padrão das arestas é amarela e a cor de preenchimento do polígono é preta.
+    - Se desejar alterar as cores, isso deve ser feito antes de iniciar a criação de um novo polígono. Após o início, não será possível alterar as cores, somente após clicar no botão "Gerar Polígono".
+
